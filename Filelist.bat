@@ -1,1 +1,1 @@
-dir /b C:\Users\colli\Documents\Repos\Website\Videos > C:\Users\colli\Documents\Repos\Website\files.txt
+dir /b .\Videos > .\files.txt
