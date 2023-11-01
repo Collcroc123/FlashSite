@@ -3,8 +3,13 @@
   <body>
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <object>
-        <embed src="./bowman2.swf" width="550" height="400" />
-    </object>
-  <a href="./bowman2.sfw">DOWNLOAD .SWF</a>
+        <embed id="swf" src="./" width="550" height="400" />
+    </object><br>
+    <a id="download" href="">DOWNLOAD .SWF</a>
+    <script>
+        var game = "bowman2"; 
+        document.getElementById("swf").src = "./" + game + ".swf";
+        socument.getElementById("download").href = "https://github.com/Collcroc123/Website/raw/main/Games/Flash/" + game + "/" + game + ".sfw";
+    </script>
   </body>
 </html>
