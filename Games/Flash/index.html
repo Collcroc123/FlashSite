@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <object>
+        <embed id="swf" src="./" width="550" height="400" />
+    </object><br>
+    <a id="download" href="">DOWNLOAD .SWF</a>
+    <script>
+        if(window.location.hash) {
+          var game = window.location.hash.substring(1);
+          alert (game);
+          document.getElementById("swf").src = "./" + game + ".swf";
+          document.getElementById("download").href = "https://github.com/Collcroc123/Website/raw/main/Games/Flash/" + game + ".sfw";
+        } else {
+          alert ("GAME NOT SPECIFIED!");
+        }
+    </script>
+  </body>
+</html>
