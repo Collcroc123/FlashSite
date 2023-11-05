@@ -5,15 +5,46 @@
     <object>
         <embed id="swf" src="./" width="550" height="400" />
     </object><br>
-    <a id="download" href="">DOWNLOAD .SWF</a>
+    <!--
+    <label for="cars">Choose a car:</label>
+    <select name="emulators" id="emulators">
+      <option value="ruffle">Ruffle</option>
+      <option value="Waflash">Waflash</option>
+    </select>-->
+    <div>
+      <h1 id="name">NAME</h1>
+      <a id="download" href="">DOWNLOAD .SWF</a>
+    </div>
+    
     <script>
+        const stopWords = ["a", "an", "the", "and", "but", "for", "or", "nor", "at", "by", "for", "in", "of", "on", "to", "up", "with", "vs."];
+        
         if(window.location.hash) {
           var game = window.location.hash.substring(1);
-          alert (game);
           document.getElementById("swf").src = "./" + game + ".swf";
           document.getElementById("download").href = "https://github.com/Collcroc123/Website/raw/main/Games/Flash/" + game + ".sfw";
+          document.getElementById("name").innerText = makeProper(game);
         } else {
-          alert ("GAME NOT SPECIFIED!");
+          alert ("GAME NOT SPECIFIED! PUT \"#gamename\" AT THE END OF THE URL!");
+        }
+
+        function makeProper(fileName) {
+          fileName = fileName.replace(/_/g, ' ');
+          const words = fileName.split(' ');
+          words.forEach((word, i) => {
+            words[i] = capitalize(word);
+          });
+          const title = words.join(' ');
+          const properTitle = title[0].toUpperCase() + title.slice(1);
+          return properTitle;
+        }
+
+        function capitalize(str) {
+          if(stopWords.includes(str) == false) {
+            return str[0].toUpperCase() + str.slice(1);
+          } else {
+            return str;
+          }
         }
     </script>
   </body>
